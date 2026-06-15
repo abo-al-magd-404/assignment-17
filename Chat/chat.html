@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatApp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <audio id="notifyTone" src="./sounds/notify.wav" preload="auto"></audio>
+
+    <aside class="sidebar">
+      <!-- Profile -->
+      <div class="sidebar-profile">
+        <img
+          id="profileImage"
+          class="avatar avatar--lg"
+          src="./avatar/Avatar-No-Background.png"
+          alt="Profile"
+        />
+        <div class="profile-info">
+          <h2 id="userName" class="profile-name">Loading…</h2>
+          <span class="status-dot">Online</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <p class="section-label">Friends</p>
+        <div id="chatUsers" class="contact-list"></div>
+      </div>
+
+      <div class="sidebar-section">
+        <p class="section-label">Groups</p>
+        <div id="chatGroups" class="contact-list"></div>
+      </div>
+    </aside>
+
+    <main class="chat-area">
+      <!-- Top bar -->
+      <header class="chat-header">
+        <div class="chat-header__info">
+          <span class="chat-header__name" id="chatTargetName"
+            >Select a chat</span
+          >
+          <span class="chat-header__sub" id="chatTargetSub">—</span>
+        </div>
+      </header>
+
+      <!-- Messages -->
+      <div id="messageList" class="message-list"></div>
+
+      <!-- Composer -->
+      <div class="composer">
+        <input
+          id="messageBody"
+          type="text"
+          placeholder="Type a message…"
+          autocomplete="off"
+        />
+        <button id="sendMessage" class="send-btn" aria-label="Send">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+    </main>
+
+    <script src="./node_modules/jwt-decode/build/jwt-decode.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./node_modules/socket.io/client-dist/socket.io.min.js"></script>
+    <script src="./js/chat.js"></script>
+  </body>
+</html>
